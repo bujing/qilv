@@ -1,0 +1,19 @@
+<!--miniprogram/pages/account/category.wxml-->
+<view class="category">
+  <view class="category__item text_md text_dark" wx:for="{{all}}" wx:key="{{index}}">
+    <view class="category__main">
+      <text class="iconfont {{foldCategorys[item._id] ? 'iconfont_fold' : 'iconfont_unfold'}} text_bolder" bindtap="onFoldCategory" data-id="{{item._id}}"></text>
+      <text class="category__name text_bolder">{{item.name}}</text>
+      <text class="iconfont iconfont_close text_warning" bindtap="onCategoryDel" data-id="{{item._id}}" data-name="{{item.name}}"></text>
+    </view>
+    <view class="category__sub" wx:for="{{item.sub}}" wx:for-item="itm" wx:for-index="idx" wx:key="{{idx}}" wx:if="{{!foldCategorys[item._id]}}">
+      <text class="category__name text_gray text_sm">{{itm.name}}</text>
+      <text class="iconfont iconfont_close text_warning" bindtap="onCategoryDel" data-id="{{itm._id}}" data-name="{{itm.name}}"></text>
+    </view>
+  </view>
+</view>
+
+<text class="btn_new iconfont iconfont_add text_primary" bindtap="onShowCategoryModal" data-show="{{true}}"></text>
+
+<!-- 新增分类 -->
+<addCategory main="{{main}}" show="{{categoryModalIsShow}}"/>

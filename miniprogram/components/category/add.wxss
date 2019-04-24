@@ -1,0 +1,45 @@
+/* components/category/add.wxss */
+.pop_add {
+  line-height: 64rpx;
+  overflow: hidden;
+}
+.pop_add__head {
+  border-bottom: 1rpx solid #d4d4d4;
+  padding: 8rpx 0;
+  position: relative;
+  text-align: center;
+}
+.pop_add__close {
+  position: absolute;
+  padding: 0 16rpx;
+  right: 8rpx;
+}
+.pop_add__body {
+  padding: 16rpx 32rpx;
+}
+.pop_add__item {
+  margin: 8rpx 0;
+}
+.pop_add__foot {
+  background-color: #06a;
+  padding: 8rpx 0;
+  text-align: center;
+}
+
+.input {
+  display: inline-block;
+  height: 64rpx;
+  line-height: 64rpx;
+  vertical-align: top;
+}
+
+.radio {
+  display: inline-block;
+}
+.radio__item + .radio__item {
+  margin-left: 24rpx;
+}
+.radio__body {
+  margin: 0 -16rpx 0 -10rpx;
+  transform: scale(0.7);
+}

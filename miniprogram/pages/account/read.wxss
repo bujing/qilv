@@ -1,0 +1,57 @@
+/* miniprogram/pages/account/read.wxss */
+.read {
+  padding: 0 32rpx;
+}
+
+.type {
+  margin: 32rpx 0 16rpx;
+}
+.type .iconfont {
+  font-size: 64rpx;
+}
+.type .iconfont + .iconfont {
+  margin-left: 32rpx;
+}
+
+.switch {
+  border: 1rpx solid #06a;
+  border-radius: 24rpx;
+  line-height: 48rpx;
+  margin: 0 32rpx;
+  overflow: hidden;
+}
+.switch__item {
+  float: left;
+  padding: 0 20rpx;
+}
+.switch__item.active {
+  background-color: #06a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.list__item {
+  border-bottom: 1rpx solid #f8f8f8;
+  line-height: 48rpx;
+  padding: 16rpx 0;
+}
+.list__item:last-child {
+  border-bottom: none;
+}
+.list__body {
+  overflow: hidden;
+}
+.list__date {
+  margin-right: 16rpx;
+}
+.list__cate {
+  margin-right: 32rpx;
+}
+
+.btn_new {
+  border-radius: 50%;
+  bottom: 96rpx;
+  font-size: 96rpx;
+  position: fixed;
+  right: 32rpx;
+}

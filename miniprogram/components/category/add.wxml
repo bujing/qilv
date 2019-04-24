@@ -1,0 +1,36 @@
+<!--components/category/add.wxml-->
+<view class="mask" wx:if="{{show}}">
+  <view class="pop pop_add text_md">
+    <view class="pop_add__head">
+      新增分类
+      <text class="iconfont iconfont_close pop_add__close text_primary" bindtap="onShowCategoryModal" data-show="{{false}}"></text>
+    </view>
+    <view class="pop_add__body">
+      <picker class="pop_add__item" mode="selector" range="{{main}}" range-key="name" value="{{mainValue}}" bindchange="onMainCategoryChange" bindcancel="onMainCategoryCancel">
+        主类：
+        <text class="text_primary" wx:if="{{main[mainValue]}}">{{main[mainValue].name}}</text>
+        <text class="text_secondary" wx:else>请选择</text>
+      </picker>
+      <view class="pop_add__item">
+        名称：
+        <input class="input" placeholder="请输入" placeholder-class="text_secondary" bindinput="onCategoryNameInput" value="{{categoryName}}"/>
+      </view>
+      <view class="pop_add__item">
+        类型：
+        <radio-group class="radio" bindchange="onRadioChange">
+          <label class="radio__item {{ !type ? 'text_primary' : '' }}">
+            <radio class="radio__body" value="0" checked="{{!type}}" disabled="{{mainValue !== -1}}"/>
+            支出
+          </label>
+          <label class="radio__item {{ type ? 'text_primary' : '' }}">
+            <radio class="radio__body" value="1" checked="{{type}}" disabled="{{mainValue !== -1}}"/>
+            收入
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="pop_add__foot">
+      <button class="btn btn_block btn_primary" bindtap="onCategorySave">保存</button>
+    </view>
+  </view>
+</view>

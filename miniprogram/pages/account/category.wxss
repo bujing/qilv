@@ -1,0 +1,33 @@
+/* miniprogram/pages/account/category.wxss */
+.category {
+  line-height: 72rpx;
+  padding: 0 32rpx;
+}
+.category__item {
+  border-bottom: 1rpx solid #f8f8f8;
+  padding: 8rpx 0;
+}
+.category__item:last-child {
+  border-bottom: none;
+}
+.category__main {
+  align-items: center;
+  display: flex;
+}
+.category__sub {
+  align-items: center;
+  display: flex;
+  padding-left: 32rpx;
+}
+.category__name {
+  flex: 1;
+  margin-left: 16rpx;
+}
+
+.btn_new {
+  border-radius: 50%;
+  bottom: 96rpx;
+  font-size: 96rpx;
+  position: fixed;
+  right: 32rpx;
+}

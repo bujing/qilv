@@ -1,0 +1,125 @@
+/**app.wxss**/
+@import "/fonts/iconfont.wxss";
+
+/* 按钮 */
+.btn {
+  background-color: transparent;
+  border-radius: 8rpx;
+  display: inline-block;
+  font-size: 32rpx;
+  line-height: 64rpx;
+  min-width: 112rpx;
+  padding: 0 24rpx;
+  vertical-align: top;
+}
+.btn::after {
+  border: none;
+}
+.btn_block {
+  display: block;
+  text-align: center;
+}
+.btn_default {
+  background-color: #fff;
+  color: #a29161;
+}
+.btn_primary {
+  background-color: #06a;
+  color: #fff;
+}
+.btn + .btn {
+  margin-left: 16rpx;
+}
+.btn_block + .btn_block {
+  margin-left: 0;
+  margin-top: 16rpx;
+}
+
+/* 文本 */
+.text_xs {
+  font-size: 24rpx;
+}
+.text_sm {
+  font-size: 28rpx;
+}
+.text_md {
+  font-size: 32rpx;
+}
+.text_lg {
+  font-size: 36rpx;
+}
+.text_xl {
+  font-size: 40rpx;
+}
+.text_warning {
+  color: #f30;
+}
+.text_primary {
+  color: #06a;
+}
+.text_secondary {
+  color: #999;
+}
+.text_dark {
+  color: #333;
+}
+.text_gray {
+  color: #666;
+}
+.text_normal {
+  font-weight: normal;
+}
+.text_bolder {
+  font-weight: bolder;
+}
+.text_center {
+  text-align: center;
+}
+.text_left {
+  text-align: left;
+}
+.text_right {
+  text-align: right;
+}
+
+/* 浮动 */
+.float_left {
+  float: left;
+}
+.float_right {
+  float: right;
+}
+.float_none {
+  float: none;
+}
+
+/* 弹框 */
+.mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+}
+.pop {
+  background-color: #fff;
+  border-radius: 16rpx;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 560rpx;
+}
+
+/* 弹性盒子 */
+.flex {
+  display: flex;
+}
+.align_center {
+  align-items: center;
+}
+.flex__fill {
+  flex: 1;
+}

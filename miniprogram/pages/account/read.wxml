@@ -1,0 +1,87 @@
+<!--miniprogram/pages/account/read.wxml-->
+<userinfo/>
+
+<view class="read">
+  <view class="type flex align_center">
+    <text class="iconfont iconfont_{{item}} {{ mode === item ? 'text_primary' : 'text_secondary' }}" bindtap="onModeChange" data-mode="{{item}}" wx:for="{{viewMode}}" wx:key="{{index}}"></text>
+    <view class="switch text_sm">
+      <text class="switch__item {{ type === 0 ? 'active' : '' }}" bindtap="onTypeChange" data-type="{{0}}">支出</text>
+      <text class="switch__item {{ type === 1 ? 'active' : '' }}" bindtap="onTypeChange" data-type="{{1}}">收入</text>
+    </view>
+    <view class="flex__fill">
+      <navigator class="float_right iconfont iconfont_category text_primary" url="./category"></navigator>
+    </view>
+  </view>
+
+  <view class="list" wx:if="{{mode === 'day'}}">
+    <navigator class="list__item" url="./write?date={{item.date}}" wx:for="{{daily[type]}}" wx:key="{{index}}">
+      <view class="list__body text_md">
+        <view class="float_right">
+          {{item.total}} <text class="text_xs text_secondary">元</text>
+        </view>
+        <view class="float_left">
+          <text class="list__date">{{item.title}}</text>
+          <text class="text_xs text_secondary">共 {{item.list.length}} 笔{{type ? '收入' : '支出'}}</text>
+        </view>
+      </view>
+      <view class="list__body" wx:for="{{item.list}}" wx:for-item="itm" wx:for-key="idx" wx:key="{{idx}}" wx:if="{{itm.money}}">
+        <view class="float_right text_sm text_gray">
+          <text class="text_xs">￥</text>{{itm.money}}
+        </view>
+        <view class="float_left">
+          <text class="list__cate text_md text_dark">{{all[itm.main].name}}</text>
+          <text class="text_sm text_gray">{{all[itm.sub].name}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="list" wx:elif="{{mode === 'month'}}">
+    <view class="list__item" wx:for="{{monthly[type]}}" wx:key="{{index}}">
+      <view class="list__body text_md">
+        <view class="float_right">
+          {{item.total}} <text class="text_xs text_secondary">元</text>
+        </view>
+        <view class="float_left">
+          <text class="list__date">{{item.title}}</text>
+          <text class="text_xs text_secondary">共 {{item.days}} 天 {{item.records}} 笔{{type ? '收入' : '支出'}}</text>
+        </view>
+      </view>
+      <view class="list__body" wx:for="{{item.main}}" wx:for-item="itm" wx:for-key="idx" wx:key="{{idx}}">
+        <view class="float_right text_sm text_gray">
+          <text class="text_xs">￥</text>{{itm.total}}
+        </view>
+        <view class="float_left">
+          <text class="list__cate text_md text_dark">{{all[itm.id].name}}</text>
+          <text class="text_sm text_gray">{{itm.percent}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list" wx:elif="{{mode === 'year'}}">
+    <view class="list__item" wx:for="{{yearly[type]}}" wx:key="{{index}}">
+      <view class="list__body text_md">
+        <view class="float_right">
+          {{item.total}} <text class="text_xs text_secondary">元</text>
+        </view>
+        <view class="float_left">
+          <text class="list__date">{{item.title}}</text>
+          <text class="text_xs text_secondary">共 {{item.days}} 天 {{item.records}} 笔{{type ? '收入' : '支出'}}</text>
+        </view>
+      </view>
+      <view class="list__body" wx:for="{{item.main}}" wx:for-item="itm" wx:for-key="idx" wx:key="{{idx}}">
+        <view class="float_right text_sm text_gray">
+          <text class="text_xs">￥</text>{{itm.total}}
+        </view>
+        <view class="float_left">
+          <text class="list__cate text_md text_dark">{{all[itm.id].name}}</text>
+          <text class="text_sm text_gray">{{itm.percent}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<navigator class="btn_new iconfont iconfont_add text_primary" url="./write">
+</navigator>

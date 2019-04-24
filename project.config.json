@@ -1,0 +1,56 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false
+	},
+	"appid": "wx5077a815076e486d",
+	"projectname": "accountbook",
+	"libVersion": "2.6.2",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "account read",
+					"pathName": "pages/account/read",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "account write",
+					"pathName": "pages/account/write",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "account category",
+					"pathName": "pages/account/category",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

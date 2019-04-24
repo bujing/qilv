@@ -1,0 +1,56 @@
+/* miniprogram/pages/account/write.wxss */
+.detail {
+  padding: 32rpx 32rpx 128rpx 32rpx;
+}
+.title {
+  align-items: center;
+  display: flex;
+  height: 48rpx;
+  margin-bottom: 16rpx;
+}
+.title .iconfont {
+  margin-left: 32rpx;
+  vertical-align: middle;
+}
+.content + .title {
+  margin-top: 32rpx;
+}
+.item + .item {
+  margin-top: 16rpx;
+}
+.item__cate_main {
+  display: block;
+  line-height: 48rpx;
+}
+.item__remark {
+  clear: both;
+}
+.item__money {
+  float: right;
+  height: 48rpx;
+  line-height: 48rpx;
+  min-height: 48rpx;
+  width: 160rpx;
+}
+.item__close {
+  background-color: transparent;
+  color: #f30;
+  float: right;
+  height: 112rpx;
+  line-height: 48rpx;
+  margin: -34rpx -32rpx 0 16rpx;
+  padding: 32rpx;
+}
+.item__close::after {
+  border: none;
+}
+
+.btn_save {
+  border-radius: 0;
+  bottom: 0;
+  font-size: 36rpx;
+  left: 0;
+  line-height: 96rpx;
+  position: fixed;
+  width: 100%;
+}

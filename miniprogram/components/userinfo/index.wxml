@@ -1,0 +1,6 @@
+<!--components/userinfo/index.wxml-->
+<view class="userinfo">
+  <image class="avatar" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"/>
+  <button class="iconfont iconfont_weixin" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" wx:else></button>
+  <text class="nickname">{{nickName}}</text>
+</view>
