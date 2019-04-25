@@ -10,8 +10,8 @@
 		"nodeModules": false
 	},
 	"appid": "wx5077a815076e486d",
-	"projectname": "accountbook",
-	"libVersion": "2.6.2",
+	"projectname": "%E9%AA%91%E9%A9%B4%E8%B4%A6%E6%9C%AC",
+	"libVersion": "2.6.6",
 	"condition": {
 		"search": {
 			"current": -1,
