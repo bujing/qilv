@@ -19,24 +19,19 @@
     </picker>
   </view>
   <view class="content text_md text_gray">
-    <view class="item" wx:for="{{account.list}}" wx:key="{{index}}">
-      <button class="item__close" bindtap="onDelAccount" data-index="{{index}}"><text class="iconfont iconfont_close"></text></button>
-      <input class="item__money text_primary text_md text_right" type="digit" name="money" placeholder="请输入金额" placeholder-class="text_secondary" bindinput="onItemInput" data-type="money" data-index="{{index}}" value="{{item.money}}"/>
-      <view class="item__cate">
-        <text class="item__cate_main text_dark">{{all[item.main].name}}</text>
-        <text class="item__cate_sub text_sm">{{all[item.sub].name}}</text>
+    <block wx:for="{{[account, income]}}" wx:for-item="record" wx:for-index="idx">
+      <view class="item" wx:for="{{record.list}}" wx:key="{{index}}">
+        <button class="item__close" bindtap="onDelAccount" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}">
+          <text class="iconfont iconfont_close"></text>
+        </button>
+        <input class="item__money text_primary text_md text_right" type="digit" name="money" placeholder="请输入金额" placeholder-class="text_secondary" bindinput="onItemInput" data-type="money" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}" value="{{item.money}}"/>
+        <view class="item__cate">
+          <text class="item__cate_main text_dark">{{all[item.main].name}}</text>
+          <text class="item__cate_sub text_sm">{{all[item.sub].name}}</text>
+        </view>
+        <input class="item__remark text_secondary text_xs" placeholder="备注信息" placeholder-class="input_placeholder" bindinput="onItemInput" data-type="remark" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}" value="{{item.remark}}"/>
       </view>
-      <input class="item__remark text_secondary text_xs" placeholder="备注信息" placeholder-class="input_placeholder" bindinput="onItemInput" data-type="remark" data-index="{{index}}" value="{{item.remark}}"/>
-    </view>
-    <view class="item" wx:for="{{income.list}}" wx:key="{{index}}">
-      <button class="item__close" bindtap="onDelAccount" data-mode="income" data-index="{{index}}"><text class="iconfont iconfont_close"></text></button>
-      <input class="item__money text_primary text_md text_right" type="digit" name="money" placeholder="请输入金额" placeholder-class="text_secondary" bindinput="onItemInput" data-type="money" data-mode="income" data-index="{{index}}" value="{{item.money}}"/>
-      <view class="item__cate">
-        <text class="item__cate_main text_dark">{{all[item.main].name}}</text>
-        <text class="item__cate_sub text_sm">{{all[item.sub].name}}</text>
-      </view>
-      <input class="item__remark text_secondary text_xs" placeholder="备注信息" placeholder-class="input_placeholder" bindinput="onItemInput" data-type="remark" data-index="{{index}}" value="{{item.remark}}"/>
-    </view>
+    </block>
   </view>
 </view>
 
