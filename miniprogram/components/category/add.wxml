@@ -2,14 +2,14 @@
 <view class="mask" wx:if="{{show}}">
   <view class="pop pop_add text_md">
     <view class="pop_add__head">
-      新增分类
+      {{info._id ? '编辑分类' : '新增分类'}}
       <text class="iconfont iconfont_close pop_add__close text_primary" bindtap="onShowCategoryModal" data-show="{{false}}"></text>
     </view>
     <view class="pop_add__body">
-      <picker class="pop_add__item" mode="selector" range="{{main}}" range-key="name" value="{{mainValue}}" bindchange="onMainCategoryChange" bindcancel="onMainCategoryCancel">
+      <picker class="pop_add__item" mode="selector" range="{{main}}" range-key="name" value="{{mainValue}}" bindchange="onMainCategoryChange" bindcancel="onMainCategoryCancel" disabled="{{info.parent ? false : true}}">
         主类：
         <text class="text_primary" wx:if="{{main[mainValue]}}">{{main[mainValue].name}}</text>
-        <text class="text_secondary" wx:else>请选择</text>
+        <text class="text_secondary" wx:else>新增主类请留空</text>
       </picker>
       <view class="pop_add__item">
         名称：

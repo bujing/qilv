@@ -7,7 +7,8 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": false
+		"nodeModules": false,
+		"autoAudits": true
 	},
 	"appid": "wx5077a815076e486d",
 	"projectname": "%E9%AA%91%E9%A9%B4%E8%B4%A6%E6%9C%AC",

@@ -133,9 +133,10 @@ Page({
    * 显示/隐藏添加分类弹框
    */
   onShowCategoryModal: function (event) {
-    let { show } = event.currentTarget.dataset
+    let { show, info } = event.currentTarget.dataset
     this.setData({
-      categoryModalIsShow: show
+      categoryModalIsShow: show,
+      categoryModalInfo: info || {}
     })
   }
 })

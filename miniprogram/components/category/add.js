@@ -7,6 +7,7 @@ Component({
    */
   properties: {
     main: Array,
+    info: Object,
     show: Boolean
   },
 
@@ -15,7 +16,20 @@ Component({
    */
   data: {
     mainValue: -1,
-    type: 0
+    type: 0,
+    categoryName: ''
+  },
+
+  observers: {
+    'info': function (val) {
+      if (!val) return false
+      let index = this.data.main.findIndex((value, index, arr) => value._id === val.parent)
+      this.setData({
+        mainValue: index,
+        type: val.type ? 1 : 0,
+        categoryName: val.name || ''
+      })
+    }
   },
 
   /**
@@ -77,7 +91,7 @@ Component({
      * 新增分类
      */
     onCategorySave: function () {
-      let { categoryName, main, mainValue, type } = this.data
+      let { categoryName, main, mainValue, type, info } = this.data
       if (!categoryName) {
         wx.showToast({
           icon: 'none',
@@ -89,6 +103,7 @@ Component({
         mask: true
       })
       app.setCategorys({
+        id: info._id ? info._id : '',
         name: categoryName,
         parent: mainValue === -1 ? '' : main[mainValue]._id,
         type,
