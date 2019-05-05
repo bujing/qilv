@@ -19,7 +19,7 @@
     </picker>
   </view>
   <view class="content text_md text_gray">
-    <block wx:for="{{[account, income]}}" wx:for-item="record" wx:for-index="idx">
+    <block wx:for="{{[account, income]}}" wx:for-item="record" wx:for-index="idx" wx:key="idx">
       <view class="item" wx:for="{{record.list}}" wx:key="{{index}}">
         <button class="item__close" bindtap="onDelAccount" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}">
           <text class="iconfont iconfont_close"></text>

@@ -171,6 +171,7 @@ Page({
       wx.hideLoading()
       wx.showToast({
         icon: 'none',
+        mask: true,
         title: '保存账目成功！'
       })
 
