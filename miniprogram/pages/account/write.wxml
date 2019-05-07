@@ -5,7 +5,7 @@
   <view class="title">
     <text class="text_dark text_md text_bolder">日期</text>
     <picker class="item" name="date" mode="date" value="{{date}}" end="{{endDate}}" bindchange="onDateChange">
-      <text class="iconfont iconfont_date text_lg text_primary"></text>
+      <text class="iconfont iconfont_edit text_lg text_primary"></text>
     </picker>
   </view>
   <view class="content text_md text_gray">
@@ -14,15 +14,15 @@
 
   <view class="title">
     <text class="text_dark text_md text_bolder">明细</text>
-    <picker class="item" mode="multiSelector" range="{{[main, sub]}}" range-key="name" bindchange="onCategoryChange" bindcolumnchange="onCategoryColumnChange">
-      <text class="iconfont iconfont_category text_lg text_primary"></text>
+    <picker mode="multiSelector" range="{{[main, sub]}}" range-key="name" bindchange="onCategoryChange" bindcolumnchange="onCategoryColumnChange">
+      <text class="iconfont iconfont_add text_lg text_primary"></text>
     </picker>
   </view>
   <view class="content text_md text_gray">
     <block wx:for="{{[account, income]}}" wx:for-item="record" wx:for-index="idx" wx:key="idx">
       <view class="item" wx:for="{{record.list}}" wx:key="{{index}}">
         <button class="item__close" bindtap="onDelAccount" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}">
-          <text class="iconfont iconfont_close"></text>
+          <text class="iconfont iconfont_close text_lg"></text>
         </button>
         <input class="item__money text_primary text_md text_right" type="digit" name="money" placeholder="请输入金额" placeholder-class="text_secondary" bindinput="onItemInput" data-type="money" data-mode="{{idx ? 'income' : 'account'}}" data-index="{{index}}" value="{{item.money}}"/>
         <view class="item__cate">

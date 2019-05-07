@@ -38,7 +38,7 @@
   float: right;
   height: 112rpx;
   line-height: 48rpx;
-  margin: -34rpx -32rpx 0 16rpx;
+  margin: -32rpx -32rpx 0 16rpx;
   padding: 32rpx;
 }
 .item__close::after {
