@@ -30,24 +30,33 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
-					"id": -1,
-					"name": "account read",
+					"id": 0,
+					"name": "账单",
 					"pathName": "pages/account/read",
-					"query": ""
+					"query": "",
+					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "account write",
+					"id": 1,
+					"name": "记帐",
 					"pathName": "pages/account/write",
-					"query": ""
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "分类",
+					"pathName": "pages/account/category",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "account category",
-					"pathName": "pages/account/category",
+					"name": "日记",
+					"pathName": "pages/diary/index",
 					"query": "",
 					"scene": null
 				}

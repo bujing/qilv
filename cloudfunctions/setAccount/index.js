@@ -25,7 +25,8 @@ exports.main = async (event, context) => {
       _openid: OPENID,
       date,
       list,
-      type
+      type,
+      timestamp: db.serverDate()
     }
   }).then(res => {
     return res
