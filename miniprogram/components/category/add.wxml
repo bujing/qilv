@@ -6,7 +6,7 @@
       <text class="iconfont iconfont_close pop_add__close text_primary" bindtap="onShowCategoryModal" data-show="{{false}}"></text>
     </view>
     <view class="pop_add__body">
-      <picker class="pop_add__item" mode="selector" range="{{main}}" range-key="name" value="{{mainValue}}" bindchange="onMainCategoryChange" bindcancel="onMainCategoryCancel" disabled="{{info.parent ? false : true}}">
+      <picker class="pop_add__item" mode="selector" range="{{main}}" range-key="name" value="{{mainValue}}" bindchange="onMainCategoryChange" bindcancel="onMainCategoryCancel" disabled="{{info._id && !info.parent ? true : false}}">
         主类：
         <text class="text_primary" wx:if="{{main[mainValue]}}">{{main[mainValue].name}}</text>
         <text class="text_secondary" wx:else>新增主类请留空</text>
