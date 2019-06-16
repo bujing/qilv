@@ -104,7 +104,7 @@ Page({
    * 删除分类
    */
   onCategoryDel: function (event) {
-    let { allCategorys } = app.globalData
+    let { all } = app.globalData.category
     let { id, name } = event.currentTarget.dataset
 
     wx.showModal({
@@ -112,7 +112,7 @@ Page({
       content: `你确定要删除 ${name} 吗？`,
       success: res => {
         if (res.confirm) {
-          let { parent } = allCategorys[id]
+          let { parent } = all[id]
           app.setCategorys({
             id,
             name,
