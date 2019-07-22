@@ -13,6 +13,10 @@
   </view>
 </view>
 
+<view class="emtry text_center" wx:if="{{!all.length}}">
+  <text class="text_md text_gray">暂无分类记录\n请点击下方 + 号添加吧~</text>
+</view>
+
 <text class="btn_new iconfont iconfont_add text_primary" bindtap="onShowCategoryModal" data-show="{{true}}"></text>
 
 <!-- 新增分类 -->

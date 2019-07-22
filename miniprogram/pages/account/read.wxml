@@ -13,6 +13,10 @@
     </view>
   </view>
 
+  <view class="emtry text_center" wx:if="{{!daily[type].length}}">
+    <text class="text_md text_gray">暂无账目记录\n请点击下方 + 号添加吧~</text>
+  </view>
+
   <view class="list" wx:if="{{mode === 'day'}}">
     <navigator class="list__item" url="./write?date={{item.date}}" wx:for="{{daily[type]}}" wx:key="{{index}}">
       <view class="list__body text_md">
