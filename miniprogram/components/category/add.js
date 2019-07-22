@@ -15,6 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    mainArr: [],
     mainValue: -1,
     type: 0,
     categoryName: ''
@@ -28,6 +29,12 @@ Component({
         mainValue: index,
         type: val.type ? 1 : 0,
         categoryName: val.name || ''
+      })
+    },
+
+    'main': function (val) {
+      this.setData({
+        mainArr: val.filter(item => !item.delete)
       })
     }
   },
