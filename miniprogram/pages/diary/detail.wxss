@@ -1,0 +1,34 @@
+/* miniprogram/pages/diary/detail.wxss */
+.container {
+  padding: 20rpx 40rpx 116rpx;
+}
+
+.item {
+  line-height: 48rpx;
+  margin: 6rpx 0;
+}
+
+.title {
+  margin-bottom: 20rpx;
+}
+
+.article {
+  margin-top: 20rpx;
+}
+
+.btn_group {
+  border-top: 2rpx solid #f8f8f8;
+  bottom: 0;
+  height: 96rpx;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.btn {
+  border-radius: 0;
+  line-height: 96rpx;
+}
+.btn + .btn {
+  margin-left: 0;
+}

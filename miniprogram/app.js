@@ -11,7 +11,7 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: 'release-4c755a',
+        env: 'test-4c755a',
         traceUser: true
       })
 
@@ -72,7 +72,7 @@ App({
   },
 
   /**
-   *  存储账目明细
+   * 存储账目明细
    */
   setAccount: function (data) {
     return wx.cloud.callFunction({
@@ -104,7 +104,7 @@ App({
   },
 
   /**
-   *  存储分类信息
+   * 存储分类信息
    */
   setCategorys: function (data) {
     return wx.cloud.callFunction({
@@ -112,6 +112,38 @@ App({
       data
     }).then(res => {
       this.getCategorys()
+
+      return res
+    })
+  },
+
+  /**
+   * 获取记事明细
+   */
+  getDiary: function () {
+    return wx.cloud.callFunction({
+      name: 'getDiary'
+    }).then(res => {
+      console.log(res)
+      this.globalData.diary = res.result
+
+      if (this.getDiaryCallback) {
+        this.getDiaryCallback()
+      }
+
+      return res
+    })
+  },
+
+  /**
+   * 存储记事明细
+   */
+  setDiary: function (data) {
+    return wx.cloud.callFunction({
+      name: 'setDiary',
+      data
+    }).then(res => {
+      this.getDiary()
 
       return res
     })

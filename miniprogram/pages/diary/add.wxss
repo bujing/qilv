@@ -1,0 +1,15 @@
+/* miniprogram/pages/diary/add.wxss */
+.container {
+  padding: 20rpx 40rpx;
+}
+
+.item {
+  line-height: 48rpx;
+  margin: 6rpx 0;
+}
+
+.input {
+  height: 48rpx;
+  line-height: 48rpx;
+  min-height: 48rpx;
+}

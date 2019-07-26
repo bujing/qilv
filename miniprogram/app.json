@@ -4,7 +4,9 @@
     "pages/account/write",
     "pages/account/category",
     "pages/diary/index",
-    "pages/cook/index"
+    "pages/cook/index",
+    "pages/diary/detail",
+    "pages/diary/add"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -25,16 +27,11 @@
       },
       {
         "pagePath": "pages/diary/index",
-        "text": "日记",
+        "text": "记事",
         "iconPath": "/images/tabbar_rj.png",
         "selectedIconPath": "/images/tabbar_rj_selected.png"
-      },
-      {
-        "pagePath": "pages/cook/index",
-        "text": "菜谱",
-        "iconPath": "/images/tabbar_cp.png",
-        "selectedIconPath": "/images/tabbar_cp_selected.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

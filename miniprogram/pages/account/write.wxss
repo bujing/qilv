@@ -44,13 +44,3 @@
 .item__close::after {
   border: none;
 }
-
-.btn_save {
-  border-radius: 0;
-  bottom: 0;
-  font-size: 36rpx;
-  left: 0;
-  line-height: 96rpx;
-  position: fixed;
-  width: 100%;
-}

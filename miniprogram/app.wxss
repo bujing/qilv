@@ -35,6 +35,16 @@
   margin-top: 16rpx;
 }
 
+.btn_save {
+  border-radius: 0;
+  bottom: 0;
+  font-size: 36rpx;
+  left: 0;
+  line-height: 96rpx;
+  position: fixed;
+  width: 100%;
+}
+
 /* 文本 */
 .text_xs {
   font-size: 24rpx;
@@ -120,6 +130,13 @@
 .align_center {
   align-items: center;
 }
+.justify_between {
+  justify-content: space-between;
+}
 .flex__fill {
   flex: 1;
+}
+
+.emtry {
+  margin-top: 32rpx;
 }

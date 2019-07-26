@@ -55,7 +55,3 @@
   position: fixed;
   right: 32rpx;
 }
-
-.emtry {
-  margin-top: 32rpx;
-}

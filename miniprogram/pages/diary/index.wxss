@@ -1,1 +1,17 @@
 /* pages/diary/index.wxss */
+.container {
+  padding: 20rpx 40rpx;
+}
+
+.list_item {
+  border-bottom: 2rpx solid #f8f8f8;
+  padding: 20rpx 10rpx;
+}
+
+.btn_new {
+  border-radius: 50%;
+  bottom: 96rpx;
+  font-size: 96rpx;
+  position: fixed;
+  right: 32rpx;
+}

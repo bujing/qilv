@@ -1,0 +1,12 @@
+<!--miniprogram/pages/diary/add.wxml-->
+<view class="container">
+  <form bindsubmit="onFormSubmit" class="text_dark">
+    <view class="flex item" wx:for="{{template.diary.options}}" wx:key="index">
+      <text class="text_gray text_md" wx:if="{{item.type !== 'editor'}}">{{item.label}}：</text>
+      <input class="flex__fill text_md input" type="text" name="{{item.name}}" placeholder="{{item.placeholder || '请输入'}}" value="{{detail.data[item.name]}}" wx:if="{{item.type === 'text'}}"/>
+      <picker class="flex__fill text_md" name="{{item.name}}" mode="date" value="{{today}}" wx:elif="{{item.type === 'picker'}}">{{today}}</picker>
+      <editor id="editor" class="text_md" name="{{item.name}}" placeholder="{{item.placeholder || '请输入'}}" bindinput="onEditorInput" bindready="onEditorReady" wx:elif="{{item.type === 'editor'}}"/>
+    </view>
+    <button form-type="submit" class="btn btn_block btn_primary btn_save">保存</button>
+  </form>
+</view>

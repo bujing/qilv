@@ -1,18 +1,20 @@
 // pages/diary/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.getDiaryCallback = this.getDiary
   },
 
   /**
@@ -26,7 +28,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.getDiary()
   },
 
   /**
@@ -62,5 +64,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getDiary: function () {
+    this.setData({
+      list: app.globalData.diary
+    })
   }
 })
