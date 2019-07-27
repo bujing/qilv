@@ -47,11 +47,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const detail = app.globalData.diary.filter(item => item._id === options.id)[0]
     this.setData({
-      detail,
       id: options.id
     })
+
+    if (app.globalData.diary) {
+      this.getDiary()
+    } else {
+      app.getDiaryCallback = this.getDiary
+      app.getDiary()
+    }
   },
 
   /**
@@ -103,28 +108,43 @@ Page({
 
   },
 
-  onDelDiary: function () {
-    wx.showLoading({
-      mask: true
+  getDiary: function () {
+    const detail = app.globalData.diary.filter(item => item._id === this.data.id)[0]
+    this.setData({
+      detail
     })
-    app.setDiary({
-      template: this.data.detail.template,
-      data: this.data.detail.data,
-      id: this.data.id,
-      delete: true
-    }).then(() => {
-      wx.hideLoading()
-      wx.showToast({
-        icon: 'none',
-        mask: true,
-        title: '删除成功！'
-      })
+  },
 
-      setTimeout(() => {
-        wx.switchTab({
-          url: './index'
-        })
-      }, 500)
+  onDelDiary: function () {
+    wx.showModal({
+      title: '温馨提示',
+      content: `你确定要删除该记事吗？`,
+      success: res => {
+        if (res.confirm) {
+          wx.showLoading({
+            mask: true
+          })
+          app.setDiary({
+            template: this.data.detail.template,
+            data: this.data.detail.data,
+            id: this.data.id,
+            delete: true
+          }).then(() => {
+            wx.hideLoading()
+            wx.showToast({
+              icon: 'none',
+              mask: true,
+              title: '删除成功！'
+            })
+
+            setTimeout(() => {
+              wx.switchTab({
+                url: './index'
+              })
+            }, 500)
+          })
+        }
+      }
     })
   }
 })

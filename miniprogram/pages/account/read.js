@@ -14,9 +14,9 @@ Page({
     mode: 'day',
     // 按收入、支出类型看账
     type: 0,
-    daily: [[], []],
-    monthly: [[], []],
-    yearly: [[], []],
+    daily: undefined,
+    monthly: undefined,
+    yearly: undefined,
     all: {}
   },
 

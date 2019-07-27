@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: undefined
   },
 
   /**
@@ -28,7 +28,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.getDiary()
+    if (!app.globalData.diary) {
+      app.getDiary()
+    }
   },
 
   /**

@@ -110,8 +110,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
+  // },
+
+  onDateChange: function (res) {
+    this.setData({
+      today: utils.dateFormat(new Date(res.detail.value).getTime(), 'yyyy年MM月dd日')
+    })
   },
 
   onEditorReady: function () {

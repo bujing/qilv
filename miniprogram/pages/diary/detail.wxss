@@ -1,6 +1,12 @@
 /* miniprogram/pages/diary/detail.wxss */
+page {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20rpx 40rpx 128rpx;
+}
+
 .container {
-  padding: 20rpx 40rpx 116rpx;
+  height: 100%;
 }
 
 .item {
@@ -12,8 +18,9 @@
   margin-bottom: 20rpx;
 }
 
-.article {
+.editor {
   margin-top: 20rpx;
+  overflow-y: auto;
 }
 
 .btn_group {

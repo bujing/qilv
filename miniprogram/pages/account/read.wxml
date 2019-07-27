@@ -13,11 +13,11 @@
     </view>
   </view>
 
-  <view class="emtry text_center" wx:if="{{!daily[type].length}}">
+  <view class="emtry text_center" wx:if="{{daily && !daily[type].length}}">
     <text class="text_md text_gray">暂无账目记录\n请点击下方 + 号添加吧~</text>
   </view>
 
-  <view class="list" wx:if="{{mode === 'day'}}">
+  <view class="list" wx:if="{{daily && mode === 'day'}}">
     <navigator class="list__item" url="./write?date={{item.date}}" wx:for="{{daily[type]}}" wx:key="{{index}}">
       <view class="list__body text_md">
         <view class="float_right">
@@ -40,7 +40,7 @@
     </navigator>
   </view>
 
-  <view class="list" wx:elif="{{mode === 'month'}}">
+  <view class="list" wx:elif="{{monthly && mode === 'month'}}">
     <view class="list__item" wx:for="{{monthly[type]}}" wx:key="{{index}}">
       <view class="list__body text_md">
         <view class="float_right">
@@ -63,7 +63,7 @@
     </view>
   </view>
 
-  <view class="list" wx:elif="{{mode === 'year'}}">
+  <view class="list" wx:elif="{{yearly && mode === 'year'}}">
     <view class="list__item" wx:for="{{yearly[type]}}" wx:key="{{index}}">
       <view class="list__body text_md">
         <view class="float_right">

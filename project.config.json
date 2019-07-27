@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -63,10 +63,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "记事",
 					"pathName": "pages/diary/add",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "详情",
+					"pathName": "pages/diary/detail",
+					"query": "id=25c59b425d3b2e43037c11864b53e67f",
 					"scene": null
 				}
 			]

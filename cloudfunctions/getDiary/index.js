@@ -14,6 +14,6 @@ exports.main = async (event, context) => {
   return await db.collection('diary').where({
     _openid: wxContext.OPENID
   }).get().then(res => {
-    return res.data.filter(item => !item.delete)
+    return res.data.filter(item => !item.delete).reverse()
   })
 }
