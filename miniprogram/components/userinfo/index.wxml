@@ -1,6 +1,9 @@
 <!--components/userinfo/index.wxml-->
-<view class="userinfo">
-  <image class="avatar" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"/>
-  <button class="iconfont iconfont_weixin" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" wx:else></button>
-  <text class="nickname">{{nickName}}</text>
+<view class="userinfo" wx:if="{{avatarUrl}}">
+  <image class="avatar" src="{{avatarUrl}}"/>
+  <navigator url="../diary/index" class="nickname">{{nickName}}</navigator>
 </view>
+<button class="userinfo" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" wx:else>
+  <label class="avatar iconfont iconfont_weixin"></label>
+  <text class="nickname">点击登录</text>
+</button>

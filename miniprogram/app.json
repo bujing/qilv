@@ -14,23 +14,5 @@
     "navigationBarTitleText": "骑驴账本",
     "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#0066aa",
-    "list": [
-      {
-        "pagePath": "pages/account/read",
-        "text": "账本",
-        "iconPath": "/images/tabbar_zb.png",
-        "selectedIconPath": "/images/tabbar_zb_selected.png"
-      },
-      {
-        "pagePath": "pages/diary/index",
-        "text": "记事",
-        "iconPath": "/images/tabbar_rj.png",
-        "selectedIconPath": "/images/tabbar_rj_selected.png"
-      }
-    ]
-  },
   "sitemapLocation": "sitemap.json"
 }
