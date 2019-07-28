@@ -6,26 +6,27 @@ cloud.init({
 })
 
 const db = cloud.database()
-const diarys = db.collection('diary')
+const cooks = db.collection('cook')
 
 // 云函数入口函数
 exports.main = async (event, context) => {
   const { OPENID } = cloud.getWXContext()
 
-  let { id, template, data, delete: del } = event
-  let diary = diarys
+  let { id, type, data, delete: del } = event
+  let cook = cooks
   let method = 'add'
   if (id) {
-    diary = diarys.doc(id)
+    cook = cooks.doc(id)
     method = 'set'
   }
 
-  return await diary[method]({
+  return await cook[method]({
     data: {
       _openid: OPENID,
-      template,
+      type,
       data,
-      delete: del
+      delete: del,
+      timestamp: db.serverDate()
     }
   }).then(res => {
     return res

@@ -4,7 +4,8 @@ App({
     account: null,
     income: null,
     category: null,
-    diary: undefined
+    cook: undefined,
+    template: undefined
   },
 
   onLaunch: function () {
@@ -119,17 +120,17 @@ App({
   },
 
   /**
-   * 获取记事明细
+   * 获取菜谱明细
    */
-  getDiary: function () {
+  getCook: function () {
     return wx.cloud.callFunction({
-      name: 'getDiary'
+      name: 'getCook'
     }).then(res => {
       console.log(res)
-      this.globalData.diary = res.result
+      this.globalData.cook = res.result
 
-      if (this.getDiaryCallback) {
-        this.getDiaryCallback()
+      if (this.getCookCallback) {
+        this.getCookCallback()
       }
 
       return res
@@ -137,14 +138,32 @@ App({
   },
 
   /**
-   * 存储记事明细
+   * 存储菜谱明细
    */
-  setDiary: function (data) {
+  setCook: function (data) {
     return wx.cloud.callFunction({
-      name: 'setDiary',
+      name: 'setCook',
       data
     }).then(res => {
-      this.getDiary()
+      this.getCook()
+
+      return res
+    })
+  },
+
+  /**
+   * 获取菜谱模板
+   */
+  getTemplate: function () {
+    return wx.cloud.callFunction({
+      name: 'getTemplate'
+    }).then(res => {
+      console.log(res)
+      this.globalData.template = res.result
+
+      if (this.getTemplateCallback) {
+        this.getTemplateCallback()
+      }
 
       return res
     })

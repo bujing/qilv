@@ -1,4 +1,4 @@
-// miniprogram/pages/diary/add.js
+// miniprogram/pages/cook/add.js
 import utils from '../../utils/index'
 
 const app = getApp()
@@ -9,42 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    template: {
-      diary: {
-        title: '日记',
-        options: [
-          {
-            name: 'title',
-            label: '标题',
-            placeholder: '日记标题',
-            type: 'text',
-            require: true
-          },
-          {
-            name: 'date',
-            label: '日期',
-            type: 'picker',
-            require: true
-          },
-          {
-            name: 'weather',
-            label: '天气',
-            type: 'text'
-          },
-          {
-            name: 'mood',
-            label: '心情',
-            type: 'text'
-          },
-          {
-            name: 'content',
-            label: '正文',
-            type: 'editor',
-            require: true
-          }
-        ]
-      }
-    },
+    type: 0,
+    template: [],
     content: null,
     detail: {}
   },
@@ -54,15 +20,21 @@ Page({
    */
   onLoad: function (options) {
     let detail = {}
+    let type = 0
     if (options.id) {
-      detail = app.globalData.diary.filter(item => item._id === options.id)[0]
+      detail = app.globalData.cook.filter(item => item._id === options.id)[0]
+      type = app.globalData.template.findIndex(item => item.type === detail.type)
     }
-    const today = detail.data ? detail.data.date : utils.dateFormat(new Date().getTime(), 'yyyy年MM月dd日')
+    const today = detail.data && detail.data.date ? detail.data.date : utils.dateFormat(new Date().getTime(), 'yyyy年MM月dd日')
     this.setData({
       today,
       detail,
-      id: options.id || ''
+      type,
+      id: options.id || '',
+      templates: app.globalData.template
     })
+
+    this.onTemplateChange(type)
   },
 
   /**
@@ -114,6 +86,19 @@ Page({
 
   // },
 
+  onTypeChange: function (res) {
+    this.setData({
+      type: res.detail.value
+    })
+    this.onTemplateChange(res.detail.value)
+  },
+
+  onTemplateChange: function (type) {
+    this.setData({
+      template: this.data.templates[type].options
+    })
+  },
+
   onDateChange: function (res) {
     this.setData({
       today: utils.dateFormat(new Date(res.detail.value).getTime(), 'yyyy年MM月dd日')
@@ -146,12 +131,13 @@ Page({
   },
 
   onFormSubmit: function (event) {
+    const { id, type, content, template, templates } = this.data
     const data = {
       ...event.detail.value,
-      content: this.data.content
+      content
     }
 
-    for (let item of this.data.template.diary.options) {
+    for (let item of template) {
       if (item.require && !data[item.name]) {
         wx.showToast({
           icon: 'none',
@@ -164,10 +150,10 @@ Page({
     wx.showLoading({
       mask: true
     })
-    app.setDiary({
-      template: 'diary',
+    app.setCook({
+      type: templates[type].type,
       data,
-      id: this.data.id
+      id
     }).then(() => {
       wx.hideLoading()
       wx.showToast({

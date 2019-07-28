@@ -1,4 +1,4 @@
-/* miniprogram/pages/diary/add.wxss */
+/* miniprogram/pages/cook/add.wxss */
 page {
   box-sizing: border-box;
   height: 100%;
@@ -7,6 +7,10 @@ page {
 
 .container {
   height: 100%;
+}
+
+.type {
+  margin-bottom: 20rpx;
 }
 
 .item {

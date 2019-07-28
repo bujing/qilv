@@ -1,4 +1,4 @@
-// miniprogram/pages/diary/detail.js
+// miniprogram/pages/cook/detail.js
 const app = getApp()
 
 Page({
@@ -7,39 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    template: {
-      diary: {
-        title: '日记',
-        options: [
-          {
-            name: 'title',
-            label: '标题',
-            placeholder: '日记标题',
-            type: 'text'
-          },
-          {
-            name: 'date',
-            label: '日期',
-            type: 'picker'
-          },
-          {
-            name: 'weather',
-            label: '天气',
-            type: 'text'
-          },
-          {
-            name: 'mood',
-            label: '心情',
-            type: 'text'
-          },
-          {
-            name: 'content',
-            label: '正文',
-            type: 'editor'
-          }
-        ]
-      }
-    },
+    template: [],
     detail: {}
   },
 
@@ -48,14 +16,15 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      templates: app.globalData.template
     })
 
-    if (app.globalData.diary) {
-      this.getDiary()
+    if (app.globalData.cook) {
+      this.getCook()
     } else {
-      app.getDiaryCallback = this.getDiary
-      app.getDiary()
+      app.getCookCallback = this.getCook
+      app.getCook()
     }
   },
 
@@ -108,23 +77,31 @@ Page({
 
   },
 
-  getDiary: function () {
-    const detail = app.globalData.diary.filter(item => item._id === this.data.id)[0]
+  getCook: function () {
+    const detail = app.globalData.cook.filter(item => item._id === this.data.id)[0]
+    const template = this.data.templates.filter(item => item.type === detail.type)[0].options
+    const multi = template.filter(item => item.type === 'multiText')
+    multi.forEach(item => {
+      if (typeof detail.data[item.name] === 'string') {
+        detail.data[item.name] = detail.data[item.name].split(',')
+      }
+    })
     this.setData({
-      detail
+      detail,
+      template
     })
   },
 
-  onDelDiary: function () {
+  onDelCook: function () {
     wx.showModal({
       title: '温馨提示',
-      content: `你确定要删除该记事吗？`,
+      content: `你确定要删除本记录吗？`,
       success: res => {
         if (res.confirm) {
           wx.showLoading({
             mask: true
           })
-          app.setDiary({
+          app.setCook({
             template: this.data.detail.template,
             data: this.data.detail.data,
             id: this.data.id,

@@ -1,4 +1,4 @@
-/* pages/diary/index.wxss */
+/* pages/cook/index.wxss */
 .container {
   padding: 20rpx 40rpx;
 }

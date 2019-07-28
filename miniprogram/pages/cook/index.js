@@ -1,4 +1,6 @@
-// pages/diary/index.js
+// pages/cook/index.js
+import utils from '../../utils/index'
+
 const app = getApp()
 
 Page({
@@ -14,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getDiaryCallback = this.getDiary
+    app.getCookCallback = this.getCook
   },
 
   /**
@@ -28,8 +30,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (!app.globalData.diary) {
-      app.getDiary()
+    if (!app.globalData.cook) {
+      app.getCook()
+    }
+    if (!app.globalData.template) {
+      app.getTemplate()
     }
   },
 
@@ -68,9 +73,13 @@ Page({
 
   },
 
-  getDiary: function () {
+  getCook: function () {
+    const list = app.globalData.cook.map(item => {
+      item.timestamp = utils.dateFormat(new Date(item.timestamp).getTime(), 'yyyy年MM月dd日')
+      return item
+    })
     this.setData({
-      list: app.globalData.diary
+      list
     })
   }
 })

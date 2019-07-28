@@ -1,13 +1,13 @@
-<!--pages/diary/index.wxml-->
+<!--pages/cook/index.wxml-->
 <view class="container" wx:if="{{list && list.length}}">
   <navigator url="./detail?id={{item._id}}" class="list_item flex justify_between align_center text_md" wx:for="{{list}}" wx:key="{{index}}">
     <text class="flex__fill">{{item.data.title}}</text>
-    <text class="text_gray text_sm">{{item.data.date}}</text>
+    <text class="text_gray text_sm">{{item.timestamp}}</text>
   </navigator>
 </view>
 
 <view class="emtry text_center" wx:if="{{list && !list.length}}">
-  <text class="text_md text_gray">暂无记事记录\n请点击下方 + 号添加吧~</text>
+  <text class="text_md text_gray">暂无菜谱信息\n请点击下方 + 号添加吧~</text>
 </view>
 
 <navigator class="btn_new iconfont iconfont_add text_primary" url="./add">

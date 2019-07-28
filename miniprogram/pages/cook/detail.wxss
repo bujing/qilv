@@ -1,4 +1,4 @@
-/* miniprogram/pages/diary/detail.wxss */
+/* miniprogram/pages/cook/detail.wxss */
 page {
   box-sizing: border-box;
   height: 100%;
@@ -12,6 +12,15 @@ page {
 .item {
   line-height: 48rpx;
   margin: 6rpx 0;
+}
+.item_multi {
+  background-color: #06a;
+  border-radius: 8rpx;
+  color: #fff;
+  padding: 0 16rpx;
+}
+.item_multi + .item_multi {
+  margin-left: 16rpx;
 }
 
 .title {
